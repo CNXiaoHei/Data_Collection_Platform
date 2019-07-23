@@ -1,16 +1,8 @@
 import sys
 import time
-
 import numpy as np
-
 from matplotlib.backends.qt_compat import QtCore, QtWidgets, is_pyqt5
-
-if is_pyqt5():
-    from matplotlib.backends.backend_qt5agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
-else:
-    from matplotlib.backends.backend_qt4agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+from matplotlib.backends.backend_qt5agg import FigureCanvas, NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 
 
@@ -23,10 +15,10 @@ class ApplicationWindow(QtWidgets.QMainWindow):
 
         dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
         layout.addWidget(dynamic_canvas)
-        self.addToolBar(QtCore.Qt.BottomToolBarArea,
-                        NavigationToolbar(dynamic_canvas, self))
-
-        self.x = []  # 建立空的x轴数组和y轴数组
+        self.addToolBar(QtCore.Qt.BottomToolBarArea,NavigationToolbar(dynamic_canvas, self))
+        
+        # 建立空的x轴数组和y轴数组
+        self.x = []  
         self.y = []
         self.n = 0
 
@@ -37,7 +29,8 @@ class ApplicationWindow(QtWidgets.QMainWindow):
 
     def _update_canvas(self):
         self.n += 1
-        if self.n == 2000:  # 画200个点就停止，根据实际情况确定终止条件
+        # 画2000个点就停止，根据实际情况确定终止条件
+        if self.n == 2000:  
             self._timer.stop()
 
         self._dynamic_ax.clear()
