@@ -6,7 +6,7 @@ class Piont_solution:
         self.x0 = 0
         self.y0 = 0
         self.theta = theta
-        self.r = (8+7.5*self.theta)/self.theta
+        self.r = (8+4*self.theta)/self.theta
         self.l = 5
 
     def solution(self):
@@ -34,15 +34,15 @@ class Piont_solution:
 
 p1 = Piont_solution(np.pi/12/5)
 p2 = Piont_solution(np.pi/6/5)
-p3 = Piont_solution(3*np.pi/4/5)
-p4 = Piont_solution(np.pi/2/5)
+p3 = Piont_solution(np.pi/3/5)
+p4 = Piont_solution(np.pi/10)
 
 x1, y1 = p1.solution()
 x2, y2 = p2.solution()
 x3, y3 = p3.solution()
 x4, y4 = p4.solution()
-plt.xlim([0, 80])
-plt.ylim([-80, 10])
+plt.xlim([0, 70])
+plt.ylim([-50, 10])
 ax = plt.gca()
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
@@ -54,4 +54,5 @@ ax.plot(x3, y3, linewidth=1, alpha=0.6)
 ax.scatter(x3, y3, marker='*', linewidths=1, alpha=0.6)
 ax.plot(x4, y4, linewidth=1, alpha=0.6)
 ax.scatter(x4, y4, marker='*', linewidths=1, alpha=0.6)
+plt.grid(linestyle=':', color='black')
 plt.show()
