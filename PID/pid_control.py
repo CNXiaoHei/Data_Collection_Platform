@@ -7,13 +7,18 @@ class PID_control:
         self.pid.setSampleTime(0.01)
         self.feedback = 0.0
         self.i = 0
+        self.current_time = 0         # 数据类型要修改
+        self.last_time = 0            # 数据类型要修改
 
-    def loop(self, setpoint):
+    def loop(self, set_point, current_time):
         self.i += 1
-        self.pid.update(self.feedback)
+        self.current_time = current_time
+        self.pid.update(self.feedback, self.current_time, self.last_time)
         output = self.pid.output
         if self.pid.SetPoint > 0:
-            self.feedback += (output - (1/self.i))
+            # self.feedback = feedback
+            pass
         if self.i > 9:
-            self.pid.SetPoint = setpoint
-        return self.feedback, self.i
+            self.pid.SetPoint = set_point
+        self.last_time = self.current_time
+        return output, self.i

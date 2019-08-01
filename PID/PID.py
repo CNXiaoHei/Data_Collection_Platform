@@ -20,10 +20,10 @@ class PID:
         self.windup_guard = 20.0
         self.output = 0.0
 
-    def update(self, feedback_value):
+    def update(self, feedback_value, current_time, last_time):
         error = self.SetPoint - feedback_value
-        self.current_time = time.time()
-        delta_time = self.current_time - self.last_time
+        # self.current_time = current_time
+        delta_time = current_time - last_time
         delta_error = error - self.last_error
         if (delta_time >= self.sample_time):
             self.PTerm = self.Kp * error            # 比例
