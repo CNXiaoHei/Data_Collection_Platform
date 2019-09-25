@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -32,6 +33,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.widget1)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
+
         self.lineEdit = QtWidgets.QLineEdit(self.widget1)
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout.addWidget(self.lineEdit)
@@ -39,39 +41,58 @@ class Ui_MainWindow(object):
         self.splitter = QtWidgets.QSplitter(self.widget1)
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
-        self.pushButton = QtWidgets.QPushButton(self.splitter)
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.splitter)
-        self.pushButton_2.setObjectName("pushButton_2")
+
+        self.set_btn = QtWidgets.QPushButton(self.splitter)
+        self.set_btn.setObjectName("pushButton")
+
+        self.reset_btn = QtWidgets.QPushButton(self.splitter)
+        self.reset_btn.setObjectName("pushButton_2")
+
         self.verticalLayout.addWidget(self.splitter)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.label_2 = QtWidgets.QLabel(self.widget1)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
-        self.lcdNumber = QtWidgets.QLCDNumber(self.widget1)
-        self.lcdNumber.setObjectName("lcdNumber")
-        self.gridLayout.addWidget(self.lcdNumber, 0, 1, 1, 1)
+
+        self.lcd_p = QtWidgets.QLCDNumber(self.widget1)
+        self.lcd_p.setObjectName("lcdNumber")
+        self.lcd_p.setDigitCount(5)
+        self.lcd_p.setSegmentStyle(QtWidgets.QLCDNumber.Flat)
+        self.lcd_p.setSmallDecimalPoint(True)
+
+        self.gridLayout.addWidget(self.lcd_p, 0, 1, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.widget1)
         self.label_3.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 1, 0, 1, 1)
-        self.lcdNumber_2 = QtWidgets.QLCDNumber(self.widget1)
-        self.lcdNumber_2.setObjectName("lcdNumber_2")
-        self.gridLayout.addWidget(self.lcdNumber_2, 1, 1, 1, 1)
+
+        self.lcd_x = QtWidgets.QLCDNumber(self.widget1)
+        self.lcd_x.setObjectName("lcdNumber_2")
+        self.lcd_x.setDigitCount(5)
+        self.lcd_x.setSegmentStyle(QtWidgets.QLCDNumber.Flat)
+        self.gridLayout.addWidget(self.lcd_x, 1, 1, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.widget1)
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
-        self.lcdNumber_3 = QtWidgets.QLCDNumber(self.widget1)
-        self.lcdNumber_3.setObjectName("lcdNumber_3")
-        self.gridLayout.addWidget(self.lcdNumber_3, 2, 1, 1, 1)
-        self.lcdNumber_4 = QtWidgets.QLCDNumber(self.widget1)
-        self.lcdNumber_4.setObjectName("lcdNumber_4")
-        self.gridLayout.addWidget(self.lcdNumber_4, 3, 1, 1, 1)
+
+        self.lcd_y = QtWidgets.QLCDNumber(self.widget1)
+        self.lcd_y.setObjectName("lcdNumber_3")
+        self.lcd_y.setDigitCount(5)
+        self.lcd_y.setSegmentStyle(QtWidgets.QLCDNumber.Flat)
+        self.gridLayout.addWidget(self.lcd_y, 2, 1, 1, 1)
+
+        self.lcd_z = QtWidgets.QLCDNumber(self.widget1)
+        self.lcd_z.setObjectName("lcdNumber_4")
+        self.lcd_z.setDigitCount(5)
+        self.lcd_z.setSegmentStyle(QtWidgets.QLCDNumber.Flat)
+
+        self.gridLayout.addWidget(self.lcd_z, 3, 1, 1, 1)
         self.label_5 = QtWidgets.QLabel(self.widget1)
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 3, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 659, 26))
@@ -89,10 +110,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.groupBox.setTitle(_translate("MainWindow", "气压值曲线"))
         self.label.setText(_translate("MainWindow", "输入气压值："))
-        self.pushButton.setText(_translate("MainWindow", "确定"))
-        self.pushButton_2.setText(_translate("MainWindow", "重置"))
+        self.set_btn.setText(_translate("MainWindow", "确定"))
+        self.reset_btn.setText(_translate("MainWindow", "重置"))
         self.label_2.setText(_translate("MainWindow", "实时气压值："))
         self.label_3.setText(_translate("MainWindow", "X:"))
         self.label_4.setText(_translate("MainWindow", "Y:"))
         self.label_5.setText(_translate("MainWindow", "Z:"))
-
