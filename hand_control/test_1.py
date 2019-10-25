@@ -47,4 +47,3 @@ class Test_one:
         csv = str(feedback)+','+str(pid_out)+'\n'
         f.writelines(csv)
         f.close()
-
